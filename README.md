@@ -38,8 +38,8 @@ use docker_api::Docker;
 #[tokio::main]
 async fn main() {
     let docker = Docker::new("unix:///var/run/docker.sock").unwrap();
-    let image = "alpine".to_owned();
-    let command = vec!["echo".to_owned(), "Hello, World!".to_owned()];
+    let image = "alpine".to_string();
+    let command = vec!["echo".to_string(), "Hello, World!".to_string()];
     let timeout_secs = Some(10);
 
     let exec = DockerExec::new(docker, image, command, timeout_secs);
@@ -47,6 +47,7 @@ async fn main() {
 
     println!("Output: {}", output);
 }
+```
 
 ### Methods
 
